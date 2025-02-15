@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Vertical Rectangle Form */
+        .register-container {
+            width: 90%;
+            max-width: 400px; /* Keeps it vertical */
+            height: auto;
+            min-height: 600px; /* Ensures content fits well */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .register-container {
+                max-width: 450px;
+                min-height: 650px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .register-container {
+                max-width: 500px;
+                min-height: 700px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white flex justify-center items-center min-h-screen p-4">
+    <div class="register-container bg-gray-800 p-8 rounded-lg shadow-lg text-center">
+        <h2 class="text-3xl font-bold mb-6">Register New Account</h2>
+
+        <!-- Name -->
+        <input type="text" id="name" placeholder="Full Name"
+            class="w-full p-3 mb-4 text-black rounded-md border border-gray-600 focus:outline-none focus:border-blue-500">
+
+        <!-- Email -->
+        <input type="email" id="email" placeholder="Email"
+            class="w-full p-3 mb-4 text-black rounded-md border border-gray-600 focus:outline-none focus:border-blue-500">
+
+        <!-- Username -->
+        <input type="text" id="username" placeholder="Username"
+            class="w-full p-3 mb-4 text-black rounded-md border border-gray-600 focus:outline-none focus:border-blue-500">
+
+        <!-- Password -->
+        <input type="password" id="password" placeholder="Create Password"
+            class="w-full p-3 mb-4 text-black rounded-md border border-gray-600 focus:outline-none focus:border-blue-500">
+
+        <!-- Biometric Authentication Choice -->
+        <h3 class="text-xl mb-3">Choose Biometric Method:</h3>
+        <div class="flex justify-center space-x-4 mb-6">
+            <button id="chooseFace" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                Face Recognition
+            </button>
+            <button id="chooseFingerprint" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                Fingerprint
+            </button>
+        </div>
+
+        <!-- Face Authentication (Hidden Initially) -->
+        <div id="faceSection" class="hidden">
+            <video id="faceCam" class="w-full h-40 bg-black rounded-md"></video>
+            <button id="captureFace" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                Scan Face
+            </button>
+        </div>
+
+        <!-- Fingerprint Authentication (Hidden Initially) -->
+        <div id="fingerprintSection" class="hidden">
+            <img id="fingerprintIcon" src="fingerprint-placeholder.png" class="w-24 mx-auto">
+            <button id="scanFingerprint" class="mt-2 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                Scan Fingerprint
+            </button>
+        </div>
+
+        <!-- Register Button -->
+        <button id="register" class="bg-purple-500 text-white px-6 py-2 rounded-full hover:bg-purple-600 mt-6">
+            Register Account
+        </button>
+
+        <p id="status" class="mt-4 text-gray-400"></p>
+
+        <!-- Already a user? Redirect to Login -->
+        <p class="mt-6 text-gray-400">
+            Already a user?  
+            <a href="index.html" class="text-blue-400 hover:underline">Login Here</a>
+        </p>
+    </div>
+    <script defer src="register.js"></script>
+</body>
+</html>
